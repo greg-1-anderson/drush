@@ -49,6 +49,7 @@
   "extra": {
     "branch-alias": {
         "dev-master": "7.0.x-dev"
-    }
+    },
+    "class": "Drush\\Composer\\Plugin"
   }
 }
