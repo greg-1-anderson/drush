@@ -73,6 +73,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface {
    * @param \Composer\Script\PackageEvent $event
    */
   public function prePackage(PackageEvent $event) {
+    $this->io->writeError(" - In " . __METHOD__);
   }
 
   /**
@@ -81,6 +82,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface {
    * @param \Composer\Script\PackageEvent $event
    */
   public function postPackageInstall(PackageEvent $event) {
+    $this->io->writeError(" - In " . __METHOD__);
     $package = $operation->getPackage();
 
     // Check to see if this is a type that might contain Drush extensions.
@@ -107,8 +109,10 @@ class Plugin implements PluginInterface, EventSubscriberInterface {
     //    $operation->getTargetPackage(),
 
   public function installCompleted(CommandEvent $event) {
+    $this->io->writeError(" - In " . __METHOD__);
+    $this->io->writeError(var_export($this->cache, TRUE));
     // Write out our cached commandfile set
-    file_put_contents("/tmp/composer.txt", var_export($this->cache(), TRUE));
+    file_put_contents("/tmp/composer.txt", var_export($this->cache, TRUE));
   }
 
   /**
