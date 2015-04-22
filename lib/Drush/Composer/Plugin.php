@@ -83,11 +83,13 @@ class Plugin implements PluginInterface, EventSubscriberInterface {
    */
   public function postPackageInstall(PackageEvent $event) {
     $this->io->writeError(" - In " . __METHOD__);
+
+    /*
     $package = $operation->getPackage();
 
     // Check to see if this is a type that might contain Drush extensions.
     if (($package->getType() == 'drupal-drush') || ($package->getType() == 'drupal-module')) {
-      /** @var \Composer\Installer\InstallationManager $installationManager */
+      // @var \Composer\Installer\InstallationManager $installationManager
       $installationManager = $this->composer->getInstallationManager();
 
       // Find out where the component was installed
@@ -102,6 +104,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface {
         $this->cache[$key] = $value;
       }
     }
+    */
   }
 
   // update events:
