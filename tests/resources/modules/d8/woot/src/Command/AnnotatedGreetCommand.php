@@ -20,7 +20,7 @@ class AnnotatedGreetCommand extends AnnotatedCommand
      * Greet someone
      *
      * @command annotated:greet
-     * @param string $name Who do you want to greet?
+     * @arg string $name Who do you want to greet?
      * @option boolean $yell If set, the task will yell in uppercase letters
      */
     protected function execute(InputInterface $input, OutputInterface $output)
