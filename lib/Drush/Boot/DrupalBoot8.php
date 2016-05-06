@@ -152,12 +152,6 @@ class DrupalBoot8 extends DrupalBoot {
 
     parent::bootstrap_drupal_full();
 
-    // This appears to be necessary; I'm not sure if, perhaps, we might
-    // be able to move the code below to some point after some later container
-    // rebuild (if available).
-    drush_log(dt('Rebuild the container.'), LogLevel::DEBUG);
-    $this->kernel->rebuildContainer();
-
     // Get a list of the modules to ignore
     $ignored_modules = drush_get_option_list('ignored-modules', array());
 
