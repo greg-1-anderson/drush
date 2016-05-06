@@ -140,14 +140,15 @@ class DrupalBoot8 extends DrupalBoot {
   function bootstrap_drupal_full() {
     drush_log(dt('About to bootstrap the Drupal 8 Kernel.'), LogLevel::DEBUG);
     // TODO: do we need to do ob_start any longer?
-//    if (!drush_get_context('DRUSH_QUIET', FALSE)) {
-//      ob_start();
-//    }
+    if (!drush_get_context('DRUSH_QUIET', FALSE)) {
+      ob_start();
+    }
+    $this->kernel->invalidateContainer();
     $this->kernel->boot();
     $this->kernel->prepareLegacyRequest($this->request);
-//    if (!drush_get_context('DRUSH_QUIET', FALSE)) {
-//      ob_end_clean();
-//    }
+    if (!drush_get_context('DRUSH_QUIET', FALSE)) {
+      ob_end_clean();
+    }
     drush_log(dt('Finished bootstraping the Drupal 8 Kernel.'), LogLevel::DEBUG);
 
     parent::bootstrap_drupal_full();
